@@ -1,6 +1,13 @@
 .App {
   text-align: center;
 }
+ul{
+  list-style-type: none;
+ }
+.navbar-list a.chosen,
+.navbar-list a:hover {
+  border-bottom: 1px solid #F14B31;
+}
 
 .App-logo {
   height: 40vmin;
