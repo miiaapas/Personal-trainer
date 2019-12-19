@@ -6,7 +6,7 @@ const Navigator = () => {
     return(
    
         <nav className="navbar" expand="lg" bg ="light">
- 
+        <NavLink className="navbar-brand" style={{textDecoration:'none'}}to ="/" >Personal Trainer</NavLink>        
         <div className="collapsenavbar-collapse" id ="navbarSupportedContent">
         <ul className="navbar-navmr-auto">
             <li className="nav -itemactive">
@@ -16,7 +16,7 @@ const Navigator = () => {
             <NavLink className="nav-link"style={{textDecoration:'none'}}to="/training">Trainings</NavLink>
             </li>
             <li className="nav -item">
-            <NavLink className="nav-link"style={{textDecoration:'none'}}to="/contact">Calendar</NavLink>
+            <NavLink className="nav-link"style={{textDecoration:'none'}}to="/calendar">Calendar</NavLink>
             </li>
             </ul >
 
