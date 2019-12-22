@@ -5,7 +5,7 @@ import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
-import { getThemeProps } from '@material-ui/styles';
+
 
 export default function AddTraining(props){
    
@@ -25,7 +25,7 @@ export default function AddTraining(props){
             setTraining({...training, [event.target.name]: event.target.value})
         }
         const addTraining = () => {
-            props.saveTraining(training);
+            props.saveTraining({...training, customer: props.training.links[0].href});
             handleClose();
         }
 
@@ -64,14 +64,7 @@ export default function AddTraining(props){
             fullWidth
           />
 
-             <TextField
-            margin="dense"
-            name="customer"
-            value={training.customer}
-            onChange={e => handleInputChange(e)}
-            label="Customer"
-            fullWidth
-          />
+     
  
           
         </DialogContent>

@@ -2,7 +2,7 @@ import React from 'react';
 import Customerlist from './components/Customerlist';
 import Traininglist from './components/Traininglist';
 import Home from './components/Home';
-import Calendar from './components/Calendar'
+import Calendar from './components/Calendar';
 import './App.css';
 
 import Navigator from './components/Navigator';

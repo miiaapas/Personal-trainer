@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import  ReactTable from 'react-table';
 import 'react-table/react-table.css';
-import Button from '@material-ui/core/Button';
 import EditCustomer from './EditCustomer';
 import AddTraining from './AddTraining';
+import DeleteIcon from '@material-ui/icons/Delete';
+import IconButton from '@material-ui/core/IconButton';
 
 export default function Customerlist () {
 
@@ -26,7 +27,8 @@ export default function Customerlist () {
         }    
     }
     const saveTraining= (training) => {
-        fetch('https://customerrest.herokuapp.com/api/trainings', {
+        fetch('https://customerrest.herokuapp.com/api/trainings', 
+            {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -70,7 +72,10 @@ export default function Customerlist () {
             filterable: false,
             widht: 100,
             accessor: 'links[0].href',
-            Cell:  row => <Button size="small" color="secondary" onClick={() => deleteCustomer(row.value)}>Delete</Button>
+            Cell:  row => <IconButton onClick={() => deleteCustomer(row.value)}>
+            <DeleteIcon size="small" color="secondary"/>
+          </IconButton>
+              
         },
         {
             Header: 'First name:',

@@ -13,19 +13,21 @@ export default function Traininglist () {
     useEffect(() => fetchData(), []);
 
     const fetchData = () => {
-        fetch('https://customerrest.herokuapp.com/api/trainings')
+        fetch('https://customerrest.herokuapp.com/gettrainings')
         .then(response => response.json())
         .then(data => {
-            setTrainings(data.content)
+            setTrainings(data)
         
         })
 
         .catch(err => console.error(err));
     }
-    const deleteTraining = (link) => {
+    const deleteTraining = (value) => {
+       
         if(window.confirm('Are you sure you want do delete this?')){
-        fetch(link, {method: 'DELETE'}).
-        then(res => fetchData())
+        fetch('https://customerrest.herokuapp.com/api/trainings/'+value, 
+        {method: 'DELETE'})
+        .then(res => fetchData())
         .catch(err => console.error(err))
         }    
     }
@@ -34,8 +36,8 @@ export default function Traininglist () {
             sortable: false,
             filterable: false,
             widht: 100,
-            accessor: 'links[0].href',
-            Cell:  row => <Button size="small" color="secondary" onClick={() => deleteTraining(row.value)}>Delete</Button>
+           
+            Cell:  row => <Button size="small" color="secondary" onClick={() => deleteTraining(row.original.id)}>Delete</Button>
         },
         {
             Header: 'Activity:',
@@ -53,7 +55,7 @@ export default function Traininglist () {
         },
         {
             Header: 'Customer:',
-            accessor: 'links[2].href'
+            accessor: 'customer.firstname'
         }
     ]
     return (
