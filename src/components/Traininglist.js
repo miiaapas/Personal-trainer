@@ -50,13 +50,16 @@ export default function Traininglist () {
             Cell: row => moment(row.original.start).format('lll'),
         },
         {
-            Header: 'Duration (30 min):',
+            Header: 'Duration (min):',
             accessor: 'duration'
         },
         {
             Header: 'Customer:',
             accessor: 'customer.firstname'
+           
         }
+  
+      
     ]
     return (
         <div>
